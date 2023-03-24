@@ -1,0 +1,77 @@
+
+
+content{ width: 800px; margin: 0 auto; }
+div {
+    border-radius: 10px;
+  }
+form {
+    width: 100%;
+max-width: 350px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+
+padding: 1em 1px 1em;
+
+border-radius: 3em;
+background: #fff;
+box-shadow: 15px 20px 10px gray;
+}
+.titulo{
+    background-color:#ADA668; 
+    color:black;
+     border-radius: 3em;
+      padding:10px 45px 
+      
+}
+h1{
+    width:auto;
+height: auto;
+margin: 4rem;
+
+}
+.form input {
+width:auto;
+height: auto;
+margin: 4rem;
+
+border-radius: 10em;
+padding:5px 10px 
+
+}
+
+
+.form-group{
+    border-radius: 100px;
+    padding:5px 10px 
+}
+
+ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+form li + li {
+margin-top: 1em;
+}
+
+label {
+/* Uniform size & alignment */
+display: inline-block;
+width: 90px;
+text-align: right;
+}
+
+
+.button {
+/* Align buttons with the text fields */
+border-radius: 5000px; /* same size as the label elements */
+}
+

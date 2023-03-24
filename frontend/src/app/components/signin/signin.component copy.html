@@ -1,0 +1,27 @@
+<div class="Titulo">
+    Mecanismos de recolección
+</div>
+
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class="card-header" >
+                Iniciar Sesión
+            </div>
+            <div class="card-body">
+                
+                <form (submit)="signin()">
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="cuenta.user" name="User" class="form-control" placeholder="Usuario" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" [(ngModel)]="cuenta.password" name="contraseña" class="form-control" placeholder="Contraseña" required>
+                    </div>
+                    <button type ="submit" class="btn btn-primary btn-block">
+                        Entrar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

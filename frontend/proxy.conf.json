@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "mongodb+srv://Gonz:megafaggot25@recoleccionieez.afzwigy.mongodb.net",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  
