@@ -1,9 +1,25 @@
-
-
-content{ width: 800px; margin: 0 auto; }
+content{ 
+    width: 800px; margin: 0 auto; }
 div {
     border-radius: 10px;
   }
+
+  h1{
+    font-family: Nunito;
+    text-align :center; width: 100%;
+    max-width: 500px; margin: 0 auto; position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+    padding: 10px 10px ;
+     background-color:  #ADA668; 
+     border: 5px solid #5E5A33; 
+      border-radius:2em ;  
+      font-size: 26px;
+  }
+h2{
+    font-family: Nunito;
+}
 form {
     width: 100%;
 max-width: 350px;
@@ -13,16 +29,17 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-49%, -49%);
 
-padding: 1em 1px 1em;
+padding: 1em 1px 2em;
 
 border-radius: 3em;
 background: #fff;
 box-shadow: 15px 20px 10px gray;
 }
+
 .titulo{
     background-color:#ADA668; 
     color:black;
@@ -30,10 +47,6 @@ box-shadow: 15px 20px 10px gray;
       padding:10px 45px 
       
 }
-h1{
-    width:auto;
-height: auto;
-margin: 4rem;
 
 .form input {
 width:auto;
@@ -68,9 +81,41 @@ width: 90px;
 text-align: right;
 }
 
+.campo{
+    padding: 10px; 
+    border: 1px solid #000;
+     border-radius:2em ;  
+     font-family: Nunito; 
+     font-size: 16px;
+}
 
 .button {
 /* Align buttons with the text fields */
+text-align: center;
 border-radius: 5000px; /* same size as the label elements */
+}
+
+.boton1{
+    font-family: Nunito;
+    font-size: 16px;
+    border: 3px solid #5E5A33;
+    background-color:  #ADA668;
+    color: black;
+    padding: 8px 80px; 
+    border-radius: 3em;
+    transition: all 0.5s ease;
+}
+
+.boton1:hover {
+    background: #5E5A33;
+    color: #fff !important;
+    box-shadow: 0 4px 20px #ADA668
+  }
+  
+.foto{
+    text-align :center; width: 100%;
+    max-width: 320px; margin: 0 auto; position: absolute;
+    top: 74%;
+    left: 39%;
 }
 

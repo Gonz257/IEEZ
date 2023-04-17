@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
   <body>
-    
+    <h1>Almacenamiento IEEZ</h1>
     <form (submit)="signin()">
         <h2 class="titulo" >Iniciar sesión</h2>
         <ul style="align-items:center">
           <li>
             <div class="form-group">
-                <input type="text" style="padding: 10px; border: 1px solid #000; border-radius:2em ;  font-family: Arial; font-size: 16px;" [(ngModel)]="cuenta.user" name="User" class="form-control" placeholder="Usuario" required autofocus>
+                <input type="text" class="campo" [(ngModel)]="cuenta.user" name="User"  placeholder="Usuario" required autofocus>
             </div>          
         </li>
         
           <li>
             <div class="form-group">
-                <input type="password" style="padding: 10px; border: 1px solid #000; border-radius:2em ; font-family: Arial; font-size: 16px;" [(ngModel)]="cuenta.password" name="contraseña" class="form-control" placeholder="Contraseña" required>
+                <input type="password" class="campo" [(ngModel)]="cuenta.password" name="contraseña"  placeholder="Contraseña" required id="myInput">
+                <!--<input type="checkbox" onclick="myFunction()">MostrarContraseña-->
             </div>
           </li>
-          <li class="button" style="text-align: center;">
-            <button style="font-size: 16px;  background-color:  #5E5A33; color: black; padding: 8px 80px; border-radius: 3em;" type ="submit" class="btn btn-primary btn-block">
+          <li class="button">
+            <button class="boton1" type ="submit" >
                 Entrar
-                
             </button>
           </li>
         </ul>
       </form>
 
   </body>
+  <footer><a class="foto" href="https://www.ieez.org.mx" target ="_blank">
+      <img src="../.././../assets/image1svg49-81c-200h.png" hint ="IEEZ" alt="IEEZ" height="auto" >
+    </a></footer>
 
 </html>

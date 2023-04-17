@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService} from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { HttpErrorResponse } from '@angular/common/http';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-signin',
@@ -9,16 +10,23 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./signin.component.css']
 
 })
-export class SigninComponent {
+export class SigninComponent  implements OnInit{
   cuenta = {
     user: '',
     password: ''
   }
    
   constructor(
-    private authService: AuthService,
-    private router: Router
+    public authService: AuthService,
+    public router: Router
   ){}
+
+  ngOnInit() {
+    if(this.authService.loggedIn()){
+      this.router.navigate(["/private"])
+    }
+    
+  }
 
   signin(){
     this.authService.signIn(this.cuenta)
@@ -26,22 +34,46 @@ export class SigninComponent {
       res => {
         console.log(res);
         localStorage.setItem('token',res.token);
+        localStorage.setItem("usuario", this.cuenta.user)
         this.router.navigate(["/private"]);
-        alert("Inicio de sesión exitoso");
+        Swal.fire({
+          title: 'Bienvenido ' + this.cuenta.user ,
+          text: "Inicio de sesión exitoso",
+          icon: "success"
+        })
 
       },
         err => {
           console.log(err);
           if (err.status==401){
-            alert("Usuarion no encontrado");
-          }else if (err.status==402){
-            alert("Contraseña incorrecta" );
+            Swal.fire({
+              title: 'Error',
+              text: "Usuario y/o contraseña incorrectos",
+              icon: "error"
+            })
           }else{
-            alert("Error desconocido" );
+            Swal.fire({
+              title: 'Error',
+              text: "Error desconocido, contacte al técnico",
+              icon: "error"
+            })
           }
             
       }
 
     )
   }
+
+  mensaje(estado: string){
+    
+  }
+
+  /*myFunction(){
+    var x = document.getElementById("myInput");
+  if (x?.nodeType == ) {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  }*/
 }

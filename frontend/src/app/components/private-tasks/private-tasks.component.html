@@ -1,7 +1,50 @@
-<h1>Private Tasks</h1>
+<h1 style="text-align: center;">Bienvenido {{cuenta.user}}</h1>
 
-<ul class ="list-group">
-    <li class="list-group-item" *ngFor="let task of tasks">
-        {{task['_id']}} - {{task['name']}} : {{task['descripción']}}
-    </li>
-</ul>
+<div class="card">
+    <table class="tabla">
+        <tr>
+            <td class="izq">
+                <a class="nav-link" style= "cursor: pointer" (click)="nav('/buscar')">
+                <img src=".././../../assets/casilla.png"height="90px">
+                <p>Casilla</p>
+                </a>
+            </td>
+            <td class="mid">
+                  <a class="nav-link" style= "cursor: pointer" (click)="nav('/buscar')">
+                <img src=".././../../assets/distrito.png"height="90px">
+                <p>Distrito</p>
+                </a>
+            </td>
+            <td class="der">
+                <a class="nav-link" style= "cursor: pointer" (click)="nav('/buscar')">
+                <img src=".././../../assets/id.png"height="90px">
+                <p>ID</p>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="izq">
+                <a class="nav-link" style= "cursor: pointer" (click)="nav('/buscar')">
+                <img src=".././../../assets/municipio.png"height="90px">
+                <p>Municipio</p>
+                </a>
+            </td>
+            <td class="mid">
+                <a class="nav-link" style= "cursor: pointer" (click)="nav('/buscar')">
+                <img src=".././../../assets/registrarcedula.png"height="90px">
+                <p>Registrar cedula</p>
+                </a>
+            </td>
+            <td class="der">
+                <a class="nav-link" style= "cursor: pointer" (click)="nav('/buscar')">
+                <img src=".././../../assets/ruta.png"height="90px">
+                <p>Ruta</p>
+                </a>
+            </td>
+        </tr>
+    </table>
+  </div>
+
+
+
+

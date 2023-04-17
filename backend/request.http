@@ -3,8 +3,11 @@ POST http://localhost:9000/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "user": "Alfredo",
-    "password": "gato123"
+    "user": "Pedro",
+    "password": "234234"
+    ,
+    "firstTime": true,
+    "isAdmin": false
 }
 ###
 POST http://localhost:9000/api/signin HTTP/1.1
@@ -14,20 +17,24 @@ Content-Type: application/json
     "user": "Alfredo",
     "password": "gato123"
 }
-###
-GET http://localhost:9000/api/users HTTP/1.1
 
 ###
-GET http://localhost:9000/api/users/Pedro HTTP/1.1
+GET http://localhost:9000/api/users/ HTTP/1.1
 
 ###
-PUT http://localhost:9000/api/users/64115bf72102f47f3ace8a1f HTTP/1.1
+GET http://localhost:9000/api/signin/?user=Pedro3000&password=tilinsex HTTP/1.1
+
+###
+PUT http://localhost:9000/api/users/641750ef8ae313d095a1c69f HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Alekey Rivas 10",
-    "password": "RebotasTula"
+
+    "password": "apz.$",
+    "FirstTime?": true,
+    "Municipio": "Apozol",
+    "isAdmin?": true
 }
 
 ###
-DELETE http://localhost:9000/api/users/641161bb17cf2439b6f03f43 HTTP/1.1
+DELETE http://localhost:9000/api/users/64291dbd2ca76d37417b5fd5 HTTP/1.1

@@ -22,6 +22,7 @@ router.get('/Users', (req,res) =>{
 });
 
 //Obtener un usuario GET
+/*
 router.get('/Users/:id', (req,res) =>{
     const {id} = req.params;
     userSchema
@@ -29,14 +30,19 @@ router.get('/Users/:id', (req,res) =>{
     .then((data) => res.json(data))
     .catch((error)=> res.json({ message: error}));
 });
-
-router.get('/Users/:user', (req,res) =>{
+*/
+router.get('/Users/:user', async (req,res) =>{
     const {user} = req.params;
-    userSchema
-    .findById(user)
-    .then((data) => res.json(data))
+    const usuario = await userSchema.findOne({user})
+    .then((data) =>{ return res.json(data)})
     .catch((error)=> res.json({ message: error}));
+//Nota del gonz del 13/04 todavia no jala el puto return xd xdxd lo unico que hace es devolver la respueta pero en el response de la api ggs
+
+ /*   .then((data) => res.json(data))
+    .catch((error)=> res.json({ message: error}));*/
+
 });
+
 
 //Actualizar usuario
 router.put('/Users/:id', (req,res) =>{
@@ -49,7 +55,8 @@ router.put('/Users/:id', (req,res) =>{
 });
 
 //SIGNIN
-router.post('/signin', async (req, res) =>{
+
+/*router.post('/signin', async (req, res) =>{
 
     const { user, password} = req.body;
     const usuario = await userSchema.findOne({user});
@@ -57,9 +64,26 @@ router.post('/signin', async (req, res) =>{
     if(usuario.password !== password) return res.status(402).send("Contraseña incorrecta");
     
     const token =jwt.sign({_id: user._id}, 'secretkey')
-    //console.log("Hola soy usuario: ", user, " y yo soy contraseña: ",password)
     return res.status(200).json({token});
-})
+})*/
+
+//Signin
+router.get('/signin/', async (req,res) =>{
+ 
+    let user = req.query.user;
+    let password= req.query.password;
+    
+    const usuario = await userSchema.findOne({user});
+    if(!usuario) return res.status(401).json({msg: "El usuario no está registrado"});
+    const response = await usuario.comparePassword(password);
+
+    if(!response) return res.status(401).json({msg: "Contraseña incorrecta", response});
+    
+    const token =jwt.sign({_id: user._id}, 'secretkey')
+    return res.status(200).json({token, msg : "INICIO_EXITOSO", response});
+});
+
+
 
 //Borrar usuario
 

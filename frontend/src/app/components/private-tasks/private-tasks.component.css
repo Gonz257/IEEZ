@@ -1,0 +1,45 @@
+.tabla {
+    width: 100%;
+max-width: 500px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+
+padding: 1em 1px 2em;
+
+border-radius: 3em;
+background: #113055;
+box-shadow: 15px 20px 10px gray;
+}
+
+tr{
+    margin:auto 
+}
+td{
+    margin:auto;
+    padding: 20px;
+    display: wrap;
+    flex-wrap: wrap;
+}
+
+p{
+    text-align: center;
+    color: white;
+    font-family: Nunito;
+}
+
+.izq{
+    align-items: left;
+}
+.mid{
+    align-items: center;
+}
+.der{
+    align-items: right;
+}

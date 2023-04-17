@@ -1,12 +1,13 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //components
-
-import { TasksComponent } from './components/tasks/tasks.component'; 
+import { RegistroCedulaComponent } from "./components/registro-cedula/registro-cedula.component";
 import { PrivateTasksComponent} from './components/private-tasks/private-tasks.component';
 import { SigninComponent } from './components/signin/signin.component';
 
 import { AuthGuard } from "./auth.guard";
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { ListaUsersComponent } from './components/lista-users/lista-users.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,9 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'tasks',
-    component: TasksComponent
+    path: 'register',
+    component: RegistroCedulaComponent,
+    canActivate : [AuthGuard]
   },
   {
     path:'private',
@@ -25,7 +27,18 @@ const routes: Routes = [
   },
   {
     path: 'signin',
-    component: SigninComponent
+    component: SigninComponent,
+
+  },
+  {
+    path: 'buscar',
+    component: BuscadorComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'lista',
+    component: ListaUsersComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
