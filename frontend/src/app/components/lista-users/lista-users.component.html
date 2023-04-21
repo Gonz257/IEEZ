@@ -1,9 +1,54 @@
-<div class="row">
-    <div class="col-md-4" *ngFor="let person of usuarios">
-        <div class="card">
-            <div class="card-body">
-                Administrador: {{person['isAdmin']}} - {{person['user']}} - {{person['district'] || "sin asignar"}}
-            </div>
-        </div>
-    </div>
+<body>
+
+	<header class="header">
+		<div class="container">
+			<div class="logo">
+				<img src="../.././../assets/image1svg49-81c-200h.png" hint ="IEEZ" alt="IEEZ" height="50px" >
+			  </div>
+			<div class="btn-menu">
+				<label for="btn-menu">☰</label>
+			</div>
+        
+		</div>
+	</header>
+	<div class="capa"></div>
+
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav style= "cursor: pointer">
+			<a href="#">Buscar Cédula</a>
+			<a href="lista">Lista de Usuarios</a>
+      <a (click)="logOff()" ><img src=".././../../assets/logoff.png"  hint ="Cerrar Sesión" alt="Cerrar Sesión" height="30px" >Cerrar sesión</a>
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
 </div>
+</body>
+ 
+
+
+<input type="text" [(ngModel)]="busqueda" (input)="filtrarUsuarios()">
+ <table border="1" style="width: 100%;" > 
+  <caption>Lista de usuarios</caption>
+    <tr>
+      <div class="card"> 
+      <th>Tipo de usuario</th>
+      <th>Nombre</th>
+      <th>Distrito</th>
+      </div>
+    </tr>
+    <tr *ngFor="let person of usuariosFiltrados">
+      <div class="card"> 
+          <td>
+            <p>{{person['isAdmin']}}</p>
+            <img src=".././../../assets/usuario.png" style="align-items: end;" alt="Avatar" style="width:60px">
+          </td><td>
+            <p>{{person['user']}}</p>
+          </td><td>
+            <p>{{person['district'] || "sin asignar"}} </p>
+          </td>
+        </div>
+
+    </tr>
+  </table>

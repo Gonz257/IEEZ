@@ -17,5 +17,7 @@ export class TasksService {
   getUsers(){
     return this.http.get<any>(this.URL + '/users')
   }
-  
+  getOneUser(name: string){
+    return this.http.get<any>(this.URL + '/users/' + name)
+  }
 }

@@ -3,6 +3,7 @@ const userSchema = require("../models/Users");
 //const app = require("../index")
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const bcrypt = require("bcrypt");
 
 //Crear Usuario (POST)
 router.post('/Users', (req,res) =>{
@@ -12,6 +13,7 @@ router.post('/Users', (req,res) =>{
     .then((data) => res.json(data))
     .catch((error)=> res.json({ message: error}));
 });
+
 
 //Obtener todos los usuarios GET
 router.get('/Users', (req,res) =>{
@@ -45,11 +47,24 @@ router.get('/Users/:user', async (req,res) =>{
 
 
 //Actualizar usuario
-router.put('/Users/:id', (req,res) =>{
+router.put('/sex', (req,res) =>{
     const {id} = req.params;
     const {user, password} = req.body;
     userSchema
     .updateOne({ _id: id }, {$set: { user, password } })
+    .then((data) => res.json(data))
+    .catch((error)=> res.json({ message: error}));
+});
+
+//Actualizar usuario con pontraseña y eso XDDD
+router.put('/Users/:id', async (req,res) =>{
+    const {id} = req.params;
+    const {password, firstTime} = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 8);
+
+    userSchema
+    .updateOne({ _id: id }, {$set: {  password: hashedPassword  , firstTime} })
     .then((data) => res.json(data))
     .catch((error)=> res.json({ message: error}));
 });

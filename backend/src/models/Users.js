@@ -31,6 +31,7 @@ userSchema.pre('save', function(next){
     }
 });
 
+
 userSchema.methods.comparePassword = async function (password) {
     if (!password) throw new Error('Password is missing, can not compare!');
   
