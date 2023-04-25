@@ -15,10 +15,14 @@
 <input type="checkbox" id="btn-menu">
 <div class="container-menu">
 	<div class="cont-menu">
+		<div *ngIf="getPermit()">
+			<nav style= "cursor: pointer">
+			<a href="registro">Registrar cédula</a>
+			</nav>
+		</div>
 		<nav style= "cursor: pointer">
-			<a href="#">Buscar Cédula</a>
 			<a href="lista">Lista de Usuarios</a>
-      <a (click)="logOff()" ><img src=".././../../assets/logoff.png"  hint ="Cerrar Sesión" alt="Cerrar Sesión" height="30px" >Cerrar sesión</a>
+      		<a (click)="logOff()" ><img src=".././../../assets/logoff.png"  hint ="Cerrar Sesión" alt="Cerrar Sesión" height="30px" >Cerrar sesión</a>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>

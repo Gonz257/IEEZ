@@ -34,8 +34,7 @@ router.get('/Users/:id', (req,res) =>{
 });
 */
 router.get('/Users/:user', async (req,res) =>{
-    const {user} = req.params;
-    const usuario = await userSchema.findOne({user})
+    userSchema.findOne(req.params)
     .then((data) =>{ return res.json(data)})
     .catch((error)=> res.json({ message: error}));
 //Nota del gonz del 13/04 todavia no jala el puto return xd xdxd lo unico que hace es devolver la respueta pero en el response de la api ggs

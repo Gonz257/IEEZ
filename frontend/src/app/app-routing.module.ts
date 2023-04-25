@@ -39,6 +39,11 @@ const routes: Routes = [
     path: 'lista',
     component: ListaUsersComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: "registro", 
+    component: RegistroCedulaComponent,
+    canActivate:[AuthGuard]
   }
 ];
 

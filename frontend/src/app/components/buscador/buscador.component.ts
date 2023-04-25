@@ -26,4 +26,12 @@ closeNav() {
 logOff(){
     this.authService.logOut();
   }
+
+  getPermit(){
+    var permiso = localStorage.getItem("permiso")
+    if (permiso == "true"){
+        return true
+    } else
+      return false
+  }
 }

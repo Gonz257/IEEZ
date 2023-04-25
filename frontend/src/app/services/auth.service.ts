@@ -11,7 +11,7 @@ export class AuthService {
 
 
 
-  private URL = "http://localhost:9000/api"
+  private URL = "https://ieezapi.onrender.com/api"
    
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -101,6 +101,7 @@ export class AuthService {
         if (result.isConfirmed) {
           localStorage.removeItem('token')
           localStorage.removeItem('usuario')
+          localStorage.removeItem('permiso')
           this.router.navigate(['/signin'])
         Swal.fire({
           title: 'Sesión cerrada',

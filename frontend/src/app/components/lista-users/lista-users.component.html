@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
 
 	<header class="header">
 		<div class="container">
@@ -24,9 +24,37 @@
 		<label for="btn-menu">✖️</label>
 	</div>
 </div>
-</body>
+</body> -->
  
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="logo">
+				<img src="../.././../assets/image1svg49-81c-200h.png" hint ="IEEZ" alt="IEEZ" height="50px" >
+			  </div>
+			<div class="btn-menu">
+				<label for="btn-menu">☰</label>
+			</div>
+		</div>
+	</div>
+<div class="capa"></div>
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+    <div *ngIf="getPermit()">
+			<nav style= "cursor: pointer">
+			<a href="registro">Registrar cédula</a>
+			</nav>
+		</div>
+		<nav style= "cursor: pointer">
+			<a href="/buscar">Buscar Cédula</a>
+      <a (click)="logOff()" ><img src=".././../../assets/logoff.png"  hint ="Cerrar Sesión" alt="Cerrar Sesión" height="30px" >Cerrar sesión</a>
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
 
+</body>
 
 <input type="text" [(ngModel)]="busqueda" (input)="filtrarUsuarios()">
  <table border="1" style="width: 100%;" > 
@@ -40,10 +68,20 @@
     </tr>
     <tr *ngFor="let person of usuariosFiltrados">
       <div class="card"> 
+       <!-- <ng-container *ngIf="person.isAdmin=true; else noAdmin"> -->
           <td>
-            <p>{{person['isAdmin']}}</p>
+            <p>{{person["isAdmin"]}}</p>
+          <!--  <p>Usuario</p> -->
             <img src=".././../../assets/usuario.png" style="align-items: end;" alt="Avatar" style="width:60px">
-          </td><td>
+          </td>
+   <!--     </ng-container> 
+       <ng-template #noAdmin> 
+          <td>
+            <p>Usuario</p>
+            <img src=".././../../assets/usuario.png" style="align-items: end;" alt="Avatar" style="width:60px">
+          </td>
+        </ng-template> -->
+          <td>
             <p>{{person['user']}}</p>
           </td><td>
             <p>{{person['district'] || "sin asignar"}} </p>

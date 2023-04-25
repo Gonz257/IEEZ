@@ -24,6 +24,7 @@ export class PrivateTasksComponent implements OnInit{
   }
   
   v = ''
+  p=''
 
   constructor( private taskService: TasksService, public authService: AuthService, public router: Router){}
 
@@ -33,8 +34,8 @@ export class PrivateTasksComponent implements OnInit{
     this.taskService.getOneUser( this.v)
       .subscribe(
         res => {
-          console.log(res)
           this.cuenta = res
+          localStorage.setItem("permiso",res.isAdmin)
           //console.log("Valor en res: " + this.cuenta._id + " " + this.cuenta.user + " " + this.cuenta.password+ " "  + this.cuenta.firstTime)
           this.authService.firstTime(this.cuenta)
         },
@@ -55,6 +56,12 @@ export class PrivateTasksComponent implements OnInit{
   nav(ruta: string){
     this.router.navigate([ruta]);
   }
-
+  getPermit(){
+    var permiso = localStorage.getItem("permiso")
+    if (permiso == "true"){
+        return true
+    } else
+      return false
+  }
 
 }

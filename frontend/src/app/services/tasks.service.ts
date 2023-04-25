@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class TasksService {
-  private URL = 'http://localhost:9000/api'
+  private URL = "https://ieezapi.onrender.com/api"
   constructor(private http: HttpClient) { }
 
   getTasks(){
@@ -20,4 +20,5 @@ export class TasksService {
   getOneUser(name: string){
     return this.http.get<any>(this.URL + '/users/' + name)
   }
+
 }
